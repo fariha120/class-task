@@ -1,57 +1,92 @@
-// question no 1
-// Create a function that reverses an array. Start small here and work your way up. Begin with an array of 5 numbers, and then try your program with a larger array to verify its success.
+//  question no 1
 
-
-// Function to reverse an array
 function reverseArray(arr) {
-    let reversedArray = [];
-    // Loop through the input array from last to first
-    for (let i = arr.length - 1; i >= 0; i--) {
-        reversedArray.push(arr[i]);  // Push each element to the new array
-    }
-    return reversedArray;
-}
+    return arr.reverse();
+  }
+  
+  const smallArray = [1, 2, 3, 4, 5];
+  const reversedSmallArray = reverseArray([...smallArray]); 
+  
+  console.log('Reversed Small Array:', reversedSmallArray); 
+  
+  const largeArray = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  const reversedLargeArray = reverseArray([...largeArray]);
+  
+  console.log('Reversed Large Array:', reversedLargeArray);
+  
+// question no 2 
 
-const array1 = [1, 2, 3, 4, 5];
-console.log("Original array:", array1);
-const reversedArray1 = reverseArray(array1);
-console.log("Reversed array:", reversedArray1);
+function filterNegativeNumbers(arr) {
+    
+    return arr.filter(num => num >= 0);
+  }
+  
+  const numbers = [1, -2, 3, -4, 5, -6];
+  const positiveNumbers = filterNegativeNumbers(numbers);
+  
+  console.log(positiveNumbers); 
 
-// larger array
-const array2 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-console.log("Original array:", array2);
-const reversedArray2 = reverseArray(array2);
-console.log("Reversed array:", reversedArray2);
-
-
-
+//    question no 3
 
 function countVowels(str) {
+
     str = str.toLowerCase();
+    
+   
     const vowels = 'aeiou';
-    let count = 0;
     
-    for (let char of str) {
-        
-        if (vowels.includes(char)) {
-            count++;
-        }
-    }
+ 
+    const vowelCount = str.split('').filter(char => vowels.includes(char)).length;
     
-    return count;
-}
+    return vowelCount;
+  }
+  const exampleString = "Hello, World!";
+  const numberOfVowels = countVowels(exampleString);
+  
+  console.log('Number of vowels:', numberOfVowels); 
+
+  //    question no 4
+
+  
+function isPalindrome(str) {
+   
+    const normalizedStr = str.toLowerCase().replace(/[^a-z0-9]/gi, '');
+  
+  
+    const reversedStr = normalizedStr.split('').reverse().join('');
+    
+   
+    return normalizedStr === reversedStr;
+  }
+  
+  
+  const testString1 = "A man, a plan, a canal, Panama";
+  const testString2 = "Hello, World!";
+  
+  console.log(`"${testString1}" is a palindrome:`, isPalindrome(testString1)); // Output: true
+  console.log(`"${testString2}" is a palindrome:`, isPalindrome(testString2)); // Output: false
+
+  
+// question no 5
 
 
-console.log(countVowels("Hello")); 
-console.log(countVowels("Testing"));
-
-
-
-
-
-
-
-// question no 6
+function isInRange(num1, num2) {
+   
+    return (num1 >= 50 && num1 <= 99) || (num2 >= 50 && num2 <= 99);
+  }
+  
+ 
+  const number1 = 45;
+  const number2 = 85;
+  
+  console.log(`Either ${number1} or ${number2} is in the range 50 - 99:`, isInRange(number1, number2)); // Output: true
+  
+  const number3 = 30;
+  const number4 = 40;
+  
+  console.log(`Either ${number3} or ${number4} is in the range 50 - 99:`, isInRange(number3, number4)); // Output: false
+  
+  // question no 6
 // Write a JavaScript program to get the minimum value of an array, after mapping each element to a value using the provided function.
 
 function minMappedValue(arr, mapFunc) {
@@ -141,3 +176,4 @@ function findIndex(array, item) {
 let arr6 = [10, 20, 30, 40, 50];
 console.log(findIndex(arr6, 30));
 console.log(findIndex(arr6, 100));
+  
